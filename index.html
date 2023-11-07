@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+        body{
+            padding: 10px 50px;
+
+        }
+
+
+        .heading{
+            text-align: center;
+            background-color: rgb(14, 158, 143);
+            font-size: 20px;
+            padding: 10px;
+            margin:0px;
+            font-family: 'Fira Sans', sans-serif;
+
+            
+        }
+        #text{
+            width:99.3%;
+            font-family: 'Fira Sans', sans-serif;
+            font-size: 20px;
+            border-color:rgb(20, 20, 138);
+        }
+
+        .result{
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 10px;
+            margin:0;
+            background-color: rgb(14, 158, 143);
+            font-family: 'Fira Sans', sans-serif;
+
+        }
+       
+    </style>
+</head>
+<body>
+    <h1 class="heading">Word And Character Count</h1>
+    <textarea id="text" col="30" rows="10"></textarea>
+    <p class='result'>
+        <span id="word">0</span> Words and <span id="char">0</span> Characters
+    </p>
+
+
+    <script>
+        let textEl=document.getElementById('text');
+        textEl.addEventListener('input',function(){
+            let a=textEl.value;
+            let b=a.length;
+            console.log(b);
+
+            document.getElementById('char').textContent=b;
+
+            a=a.trim();
+
+            let arr1=a.split(' ')
+         
+            let cleanArray=arr1.filter(function(val){
+                return val!='';
+            })
+            console.log(cleanArray);
+
+            let wordLength=cleanArray.length;
+
+            document.getElementById('word').textContent=wordLength;
+            
+        })
+    </script>
+    
+</body>
+</html>
